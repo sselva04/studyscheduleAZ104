@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ-104 Hourly Study Schedule with Progress Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .task {
+            margin: 10px 0;
+        }
+        .day {
+            background: #e4e7eb;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .hour {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .progress-container {
+            margin: 20px 0;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 30px;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #4caf50;
+            width: 0;
+            transition: width 0.3s;
+        }
+        .progress-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const progressBar = document.querySelector('.progress-bar');
+            const progressText = document.querySelector('.progress-text');
+            const total = checkboxes.length;
+            const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const progress = (completed / total) * 100;
+            progressBar.style.width = progress + '%';
+            progressText.textContent = Math.round(progress) + '% Completed';
+        }
+    </script>
+</head>
+<body>
+    <h1>AZ-104 Hourly Study Schedule with Progress Bar</h1>
+    <p>Track your progress by checking off each task as you complete it!</p>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+        <div class="progress-text">0% Completed</div>
+    </div>
+<div class='day'>
+<h2>Day 1: Azure Identity and Governance (Today)</h2>
+<ul>
+  <li class='task'><span class='hour'>1:20 PM - 3:20 PM:</span> <input type='checkbox' onclick='updateProgress()'> Read Azure Identity Management and Governance topics (Azure AD, RBAC, Azure Policy).</li>
+  <li class='task'><span class='hour'>3:20 PM - 3:40 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>3:40 PM - 5:40 PM:</span> <input type='checkbox' onclick='updateProgress()'> Set up Azure AD users and groups, assign roles using RBAC, and apply Azure Policies.</li>
+  <li class='task'><span class='hour'>5:40 PM - 6:40 PM:</span> <input type='checkbox' onclick='updateProgress()'> Dinner break.</li>
+  <li class='task'><span class='hour'>6:40 PM - 8:10 PM:</span> <input type='checkbox' onclick='updateProgress()'> Review practice questions related to Identity and Governance.</li>
+  <li class='task'><span class='hour'>8:10 PM - 8:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>8:30 PM - 9:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Summarize key learnings and update notes.</li>
+</ul>
+</div>
+<div class='day'>
+<h2>Day 2: Implement and Manage Storage</h2>
+<ul>
+  <li class='task'><span class='hour'>8:00 AM - 10:00 AM:</span> <input type='checkbox' onclick='updateProgress()'> Read Azure Storage Accounts (Blob, File Shares, Queues, Tables, Replication).</li>
+  <li class='task'><span class='hour'>10:00 AM - 10:15 AM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>10:15 AM - 12:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Create and manage storage accounts, blob containers, and file shares.</li>
+  <li class='task'><span class='hour'>12:15 PM - 1:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Lunch break.</li>
+  <li class='task'><span class='hour'>1:15 PM - 3:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Practice using Shared Access Signatures (SAS) and Azure Storage Explorer.</li>
+  <li class='task'><span class='hour'>3:15 PM - 3:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>3:30 PM - 5:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Review and complete practice questions on Storage topics.</li>
+  <li class='task'><span class='hour'>5:30 PM - 6:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Dinner break.</li>
+  <li class='task'><span class='hour'>6:30 PM - 8:00 PM:</span> <input type='checkbox' onclick='updateProgress()'> Summarize key learnings and update notes.</li>
+</ul>
+</div>
+<div class='day'>
+<h2>Day 3: Deploy and Manage Azure Compute Resources</h2>
+<ul>
+  <li class='task'><span class='hour'>8:00 AM - 10:00 AM:</span> <input type='checkbox' onclick='updateProgress()'> Read about Virtual Machines (VM creation, configuration, scale sets, availability).</li>
+  <li class='task'><span class='hour'>10:00 AM - 10:15 AM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>10:15 AM - 12:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Deploy and configure a Windows and Linux VM.</li>
+  <li class='task'><span class='hour'>12:15 PM - 1:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Lunch break.</li>
+  <li class='task'><span class='hour'>1:15 PM - 3:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Set up Availability Sets and VM Scale Sets.</li>
+  <li class='task'><span class='hour'>3:15 PM - 3:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>3:30 PM - 5:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Review and answer compute-related practice questions.</li>
+  <li class='task'><span class='hour'>5:30 PM - 6:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Dinner break.</li>
+  <li class='task'><span class='hour'>6:30 PM - 8:00 PM:</span> <input type='checkbox' onclick='updateProgress()'> Summarize key learnings and update notes.</li>
+</ul>
+</div>
+<div class='day'>
+<h2>Day 4: Configure and Manage Virtual Networking</h2>
+<ul>
+  <li class='task'><span class='hour'>8:00 AM - 10:00 AM:</span> <input type='checkbox' onclick='updateProgress()'> Read about Virtual Networks, Subnets, and Network Security Groups (NSGs).</li>
+  <li class='task'><span class='hour'>10:00 AM - 10:15 AM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>10:15 AM - 12:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Practice creating virtual networks and subnets.</li>
+  <li class='task'><span class='hour'>12:15 PM - 1:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Lunch break.</li>
+  <li class='task'><span class='hour'>1:15 PM - 3:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Configure NSGs and troubleshoot connectivity.</li>
+  <li class='task'><span class='hour'>3:15 PM - 3:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>3:30 PM - 5:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Review practice questions on Virtual Networking.</li>
+  <li class='task'><span class='hour'>5:30 PM - 6:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Dinner break.</li>
+  <li class='task'><span class='hour'>6:30 PM - 8:00 PM:</span> <input type='checkbox' onclick='updateProgress()'> Summarize key learnings and update notes.</li>
+</ul>
+</div>
+<div class='day'>
+<h2>Day 5: Monitoring, Backups, and Final Review</h2>
+<ul>
+  <li class='task'><span class='hour'>8:00 AM - 10:00 AM:</span> <input type='checkbox' onclick='updateProgress()'> Read about Azure Monitor, Alerts, and Backup Solutions.</li>
+  <li class='task'><span class='hour'>10:00 AM - 10:15 AM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>10:15 AM - 12:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Set up and configure monitoring and alerts.</li>
+  <li class='task'><span class='hour'>12:15 PM - 1:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Lunch break.</li>
+  <li class='task'><span class='hour'>1:15 PM - 3:15 PM:</span> <input type='checkbox' onclick='updateProgress()'> Review all practice questions from Tutorials Dojo.</li>
+  <li class='task'><span class='hour'>3:15 PM - 3:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a break.</li>
+  <li class='task'><span class='hour'>3:30 PM - 5:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Take a full-length mock exam.</li>
+  <li class='task'><span class='hour'>5:30 PM - 6:30 PM:</span> <input type='checkbox' onclick='updateProgress()'> Dinner break.</li>
+  <li class='task'><span class='hour'>6:30 PM - 8:00 PM:</span> <input type='checkbox' onclick='updateProgress()'> Summarize key learnings and plan for the exam day.</li>
+</ul>
+</div>
+
+</body>
+</html>
